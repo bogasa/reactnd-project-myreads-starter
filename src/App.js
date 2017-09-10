@@ -1,11 +1,18 @@
 import React from 'react'
 import AddBook from './AddBook'
+import * as BookApi from './BooksAPI'
 import { Link, Route } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 class BooksApp extends React.Component {
   
+  componentDidMount() {
+    BookApi.getAll().then(res => {
+      console.log(res);
+    })
+  }
+
   render() {
     return (
       <div className="app">
